@@ -56,17 +56,29 @@ Shader "ConfigurableShaders/Stencil"
 		return _Color;
 	}
 	
+	struct v2fShaodw {
+		V2F_SHADOW_CASTER;
+		UNITY_VERTEX_OUTPUT_STEREO
+	};
+
+	v2fShaodw vertShadow( appdata_base v )
+	{
+		v2fShaodw o;
+		UNITY_SETUP_INSTANCE_ID(v);
+		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+		TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+		return o;
+	}
+
+	float4 fragShadow( v2f i ) : SV_Target
+	{
+		SHADOW_CASTER_FRAGMENT(i)
+	}
+	
 	ENDCG
 		
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-		LOD 100
-		Cull [_Culling]
-		Offset [_Offset], [_Offset]
-		ZWrite [_ZWrite]
-		ColorMask [_ColorMask]
-
 		Stencil
 		{
 			Ref [_Stencil]
@@ -80,12 +92,37 @@ Shader "ConfigurableShaders/Stencil"
 
 		Pass
 		{
+			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+			LOD 100
+			Cull [_Culling]
+			Offset [_Offset], [_Offset]
+			ZWrite [_ZWrite]
+			ColorMask [_ColorMask]
+			
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert
 			#pragma fragment frag
 			ENDCG
 		}
+		
+		// Pass to render object as a shadow caster
+		Pass
+		{
+			Name "ShadowCaster"
+			LOD 80
+			Tags { "LightMode" = "ShadowCaster" }
+			Cull [_Culling]
+			Offset [_Offset], [_Offset]
+			ZWrite [_ZWrite]
+			ColorMask [_ColorMask]
+			
+			CGPROGRAM
+			#pragma vertex vertShadow	
+			#pragma fragment fragShadow
+			#pragma target 2.0
+			#pragma multi_compile_shadowcaster
+			ENDCG
+		}
 	}
-	Fallback "VertexLit"
 }
