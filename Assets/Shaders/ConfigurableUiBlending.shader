@@ -78,28 +78,27 @@ Shader "ConfigurableShaders/UI Blending"
 	
 	SubShader
 	{
-		Tags
-		{ 
-			"Queue"="Transparent" 
-			"IgnoreProjector"="True" 
-			"RenderType"="Transparent" 
-			"PreviewType"="Plane"
-			"CanUseSpriteAtlas"="True"
-		}
-
-		Cull Off
-		Lighting Off
-		ZWrite Off
-		ZTest [unity_GUIZTestMode]
-		Blend [_BlendSrc] [_BlendDst]
-
 		Pass
 		{
-		CGPROGRAM
+			Tags
+			{ 
+				"Queue"="Transparent" 
+				"IgnoreProjector"="True" 
+				"RenderType"="Transparent" 
+				"PreviewType"="Plane"
+				"CanUseSpriteAtlas"="True"
+			}
+			Cull Off
+			Lighting Off
+			ZWrite Off
+			ZTest [unity_GUIZTestMode]
+			Blend [_BlendSrc] [_BlendDst]
+		
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile __ UNITY_UI_ALPHACLIP
-		ENDCG
+			ENDCG
 		}
 	}
 }
