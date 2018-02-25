@@ -1,9 +1,8 @@
-# Unity shader enums
+# Configurable Unity Shaders
 
 Showing the possibilities of unity's enum attribute in shaders.
 
 ## Content
-* [Blending](./Blending/README.md)
-* [Culling](./Culling/README.md)
-* [RenderQueue](./RenderQueue/README.md)
-* [Stencil](./Stencil/README.md)
+* [Rendering](./wiki/Rendering)
+* [Stencil](./wiki/Stencil)
+* [Blending](./wiki/Blending)
