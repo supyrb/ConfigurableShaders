@@ -48,21 +48,21 @@ Shader "ConfigurableShaders/Rendering"
 		return _Color;
 	}
 	
-	struct v2fShaodw {
+	struct v2fShadow {
 		V2F_SHADOW_CASTER;
 		UNITY_VERTEX_OUTPUT_STEREO
 	};
 
-	v2fShaodw vertShadow( appdata_base v )
+	v2fShadow vertShadow( appdata_base v )
 	{
-		v2fShaodw o;
+		v2fShadow o;
 		UNITY_SETUP_INSTANCE_ID(v);
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
 		return o;
 	}
 
-	float4 fragShadow( v2f i ) : SV_Target
+	float4 fragShadow( v2fShadow i ) : SV_Target
 	{
 		SHADOW_CASTER_FRAGMENT(i)
 	}

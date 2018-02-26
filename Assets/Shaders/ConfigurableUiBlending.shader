@@ -20,8 +20,9 @@ Shader "ConfigurableShaders/UI Blending"
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 2
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 2
+		[Header(Blending)]
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 	}
 
 	CGINCLUDE

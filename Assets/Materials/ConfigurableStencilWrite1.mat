@@ -20,7 +20,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _ColorMask: 0
-    - _Culling: 2
+    - _Culling: 0
     - _Offset: 0
     - _ReadMask: 255
     - _Stencil: 1
