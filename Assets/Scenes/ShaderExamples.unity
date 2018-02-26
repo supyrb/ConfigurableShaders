@@ -378,7 +378,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 0}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &828073863
 MonoBehaviour:
@@ -629,7 +629,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1
+  near clip plane: 0.3
   far clip plane: 100
   field of view: 60
   orthographic: 0
@@ -655,8 +655,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317494880}
-  m_LocalRotation: {x: 0.112025514, y: 0.86441696, z: -0.22146949, w: 0.43724704}
-  m_LocalPosition: {x: -1.4375672, y: 0.7350168, z: 1.2658918}
+  m_LocalRotation: {x: 0.24374667, y: 0.15055582, z: -0.038345635, w: 0.957314}
+  m_LocalPosition: {x: -7.5888376, y: 0.99033755, z: -0.8547499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

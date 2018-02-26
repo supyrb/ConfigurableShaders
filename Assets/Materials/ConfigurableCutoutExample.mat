@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - _BlendDst: 10
     - _BlendSrc: 5
-    - _ColorMask: 15
+    - _ColorMask: 8
     - _Culling: 0
     - _Cutoff: 0.5
     - _ReadMask: 255
