@@ -1,5 +1,7 @@
 # Configurable Unity Shaders
 
+![Configurable stencil shader inspector screenshot](https://raw.githubusercontent.com/wiki/supyrb/ConfigurableShaders/images/stencilShaderInspector.png)
+
 Showing the possibilities of unity's enum attribute in shaders.
 [Unity Thread](https://forum.unity.com/threads/painless-stencil-shader-with-enums.518966)
 
