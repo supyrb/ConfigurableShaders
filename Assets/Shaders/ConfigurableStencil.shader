@@ -29,9 +29,11 @@ Shader "ConfigurableShaders/Stencil"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
 		
 		[Header(Rendering)]
-		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Culling", Int) = 2
+		_Offset("Offset", float) = 0
+		[Enum(UnityEngine.Rendering.CullMode)] _CullMode ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
-		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Writing Color Mask", Int) = 15
+		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
 	}
 	
 	CGINCLUDE
@@ -94,9 +96,10 @@ Shader "ConfigurableShaders/Stencil"
 		{
 			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
 			LOD 100
-			Cull [_Culling]
+			Cull [_CullMode]
 			Offset [_Offset], [_Offset]
 			ZWrite [_ZWrite]
+			ZTest [_ZTest]
 			ColorMask [_ColorMask]
 			
 			CGPROGRAM
@@ -112,10 +115,10 @@ Shader "ConfigurableShaders/Stencil"
 			Name "ShadowCaster"
 			LOD 80
 			Tags { "LightMode" = "ShadowCaster" }
-			Cull [_Culling]
+			Cull [_CullMode]
 			Offset [_Offset], [_Offset]
 			ZWrite [_ZWrite]
-			ColorMask [_ColorMask]
+			ZTest [_ZTest]
 			
 			CGPROGRAM
 			#pragma vertex vertShadow	
