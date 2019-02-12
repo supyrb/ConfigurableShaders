@@ -27,15 +27,17 @@ Shader "ConfigurableShaders/UI"
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 		
 		[Header(Stencil)]
-		_StencilComp ("Stencil Comparison", Float) = 8
-		_Stencil ("Stencil ID", Float) = 0
-		_StencilOp ("Stencil Operation", Float) = 0
-		_StencilWriteMask ("Stencil Write Mask", Float) = 255
-		_StencilReadMask ("Stencil Read Mask", Float) = 255
+		_Stencil ("Stencil ID [0;255]", Float) = 0
+		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 8
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
+		[HideInInspector] _StencilWriteMask ("Stencil Write Mask [0;255]", Float) = 255
+		[HideInInspector] _StencilReadMask ("Stencil Read Mask [0;255]", Float) = 255
  
 		[Header(Rendering)]
 		_ColorMask ("Color Mask", Float) = 15 
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
+		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 1
 	}
 
 	CGINCLUDE

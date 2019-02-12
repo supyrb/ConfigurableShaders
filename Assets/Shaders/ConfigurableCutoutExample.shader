@@ -23,12 +23,12 @@ Shader "ConfigurableShaders/CutoutExample"
 		
 		[Header(Stencil)]
 		_Stencil ("Stencil ID [0;255]", Float) = 0
-		_ReadMask ("ReadMask [0;255]", Int) = 255
-		_WriteMask ("WriteMask [0;255]", Int) = 255
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 3
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
+		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
+		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
 		
 		[Header(Blending)]
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
