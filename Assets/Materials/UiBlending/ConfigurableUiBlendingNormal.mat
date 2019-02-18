@@ -4,11 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: ConfigurableUiBlending
-  m_Shader: {fileID: 4800000, guid: e5560aee5897a85448bb67b0c1c781e0, type: 3}
-  m_ShaderKeywords: 
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ConfigurableUiBlendingNormal
+  m_Shader: {fileID: 4800000, guid: c55c8efee1a74e842be6281d307c1567, type: 3}
+  m_ShaderKeywords: UNITY_UI_ALPHACLIP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -27,4 +28,14 @@ Material:
     - _BlendDstA: 10
     - _BlendSrc: 5
     - _BlendSrcA: 5
-    m_Colors: []
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
+    - _UseUIAlphaClip: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

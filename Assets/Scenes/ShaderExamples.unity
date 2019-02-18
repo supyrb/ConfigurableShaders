@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 1165241846}
   - component: {fileID: 1165241845}
   m_Layer: 5
-  m_Name: BlackkToTransparent
+  m_Name: BlackToTransparent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
