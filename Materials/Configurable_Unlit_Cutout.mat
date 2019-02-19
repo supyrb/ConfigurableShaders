@@ -4,9 +4,10 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: ConfigurableCutoutExample
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Configurable_Unlit_Cutout
   m_Shader: {fileID: 4800000, guid: 1e147155301bf1041a7ceb9dfa7320c3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -28,6 +29,7 @@ Material:
     - _ColorMask: 15
     - _Culling: 0
     - _Cutoff: 0.5
+    - _Offset: 0
     - _ReadMask: 255
     - _Stencil: 1
     - _StencilComp: 6

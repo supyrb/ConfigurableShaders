@@ -15,12 +15,16 @@
 // </documentation>
 // --------------------------------------------------------------------------------------------------------------------
 
-Shader "ConfigurableShaders/UI"
+Shader "Configurable/UI"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
+		
+		[Header(Rendering)]
+		_ColorMask ("Color Mask", Float) = 15 
+		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 1
 		
 		[Header(Blending)]
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
@@ -34,10 +38,6 @@ Shader "ConfigurableShaders/UI"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
 		[HideInInspector] _StencilWriteMask ("Stencil Write Mask [0;255]", Float) = 255
 		[HideInInspector] _StencilReadMask ("Stencil Read Mask [0;255]", Float) = 255
- 
-		[Header(Rendering)]
-		_ColorMask ("Color Mask", Float) = 15 
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 1
 	}
 
 	CGINCLUDE

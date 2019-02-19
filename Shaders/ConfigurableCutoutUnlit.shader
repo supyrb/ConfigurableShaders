@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConfigurableCutoutExample.shader" company="Supyrb">
-//   Copyright (c) 2018 Supyrb. All rights reserved.
+// <copyright file="ConfigurableCutoutUnlit.shader" company="Supyrb">
+//   Copyright (c) 2019 Supyrb. All rights reserved.
 // </copyright>
 // <repository>
 //   https://github.com/supyrb/ConfigurableShaders
@@ -13,7 +13,7 @@
 //   https://github.com/supyrb/ConfigurableShaders/wiki/Stencil
 // </documentation>
 // --------------------------------------------------------------------------------------------------------------------
-Shader "ConfigurableShaders/CutoutExample"
+Shader "Configurable/Unlit/Cutout"
 {
 	Properties
 	{		
@@ -21,25 +21,26 @@ Shader "ConfigurableShaders/CutoutExample"
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 		
-		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Float) = 0
-		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 3
-		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
-		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
-		
-		[Header(Blending)]
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
-		
 		[Header(Rendering)]
 		_Offset("Offset", float) = 0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
+		
+		[Header(Stencil)]
+		_Stencil ("Stencil ID [0;255]", Float) = 0
+		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
+		// Readmask and Writemask are hidden by default, remove [HideInInspector] if you need them
+		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
+		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
+		
+		[Header(Blending)]
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 	}
 	
 	CGINCLUDE
@@ -120,8 +121,8 @@ Shader "ConfigurableShaders/CutoutExample"
 
 		Pass
 		{
-			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-			LOD 100
+			Tags {"Queue"="AlphaTest" "RenderType"="TransparentCutout"}
+			LOD 200
 			Cull [_Culling]
 			Offset [_Offset], [_Offset]
 			ZWrite [_ZWrite]
