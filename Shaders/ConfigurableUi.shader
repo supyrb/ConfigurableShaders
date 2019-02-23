@@ -23,7 +23,7 @@ Shader "Configurable/UI"
 		_Color ("Tint", Color) = (1,1,1,1)
 		
 		[Header(Rendering)]
-		_ColorMask ("Color Mask", Float) = 15 
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)]_ColorMask ("Color Mask", Float) = 15 
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 1
 		
 		[Header(Blending)]

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ConfigurableUiBlendingPremultiplied
+  m_Name: UI-2xMultiply
   m_Shader: {fileID: 4800000, guid: c55c8efee1a74e842be6281d307c1567, type: 3}
   m_ShaderKeywords: UNITY_UI_ALPHACLIP
   m_LightmapFlags: 4
@@ -24,9 +24,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlendDst: 10
+    - _BlendDst: 3
     - _BlendDstA: 10
-    - _BlendSrc: 1
+    - _BlendSrc: 2
     - _BlendSrcA: 5
     - _ColorMask: 15
     - _Stencil: 0
