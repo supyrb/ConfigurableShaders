@@ -20,19 +20,20 @@ Shader "Configurable/Standard"
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
-		
-		[Gamma] _Metallic("Metallic", Range(0, 1)) = 0
-		_Glossiness("Smoothness", Range(0, 1)) = 0.5
+				
+		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
+		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
+		[Toggle(VERTEX_COLOR)] _UseVertexColor("Vertex color", Float) = 0.0
 		
 		[Header(Rendering)]
-		_Offset("Offset", float) = 0
+		[Tooltip(Changes the depth value. Negative values are closer to the camera)]_Offset("Offset", Float) = 0.0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
 		
 		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Float) = 0
+		_Stencil ("Stencil ID [0;255]", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
@@ -57,11 +58,15 @@ Shader "Configurable/Standard"
 	struct Input 
 	{
 		float2 uv_MainTex;
+		float4 color : COLOR;
 	};
 
 	void surf (Input IN, inout SurfaceOutputStandard o) 
 	{
 		half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+		#ifdef VERTEX_COLOR
+		c *= IN.color;
+		#endif
 		o.Albedo = c.rgb;
 		o.Alpha = c.a;
 		o.Metallic = _Metallic;
@@ -93,6 +98,7 @@ Shader "Configurable/Standard"
 
 		CGPROGRAM
 		#pragma surface surf Standard fullforwardshadows addshadow
+		#pragma shader_feature VERTEX_COLOR
 		#pragma target 3.0
 		ENDCG
 	}

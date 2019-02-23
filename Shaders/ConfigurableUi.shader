@@ -31,7 +31,7 @@ Shader "Configurable/UI"
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 		
 		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Float) = 0
+		_Stencil ("Stencil ID [0;255]", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 8
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
