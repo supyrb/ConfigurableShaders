@@ -33,14 +33,13 @@ Shader "Configurable/Standard"
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
 		
 		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Int) = 0
+		[EightBit] _Stencil ("Stencil ID", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		// Readmask and Writemask are hidden by default, remove [HideInInspector] if you need them
-		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
-		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
+		[EightBit] _ReadMask ("ReadMask", Int) = 255
+		[EightBit] _WriteMask ("WriteMask", Int) = 255
 		
 		[Header(Blending)]
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
