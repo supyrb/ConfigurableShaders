@@ -23,14 +23,14 @@ Shader "Configurable/Standard"
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
-		[Toggle(VERTEX_COLOR)] _UseVertexColor("Vertex color", Float) = 0.0
+		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
 		
 		[Header(Rendering)]
-		[Tooltip(Changes the depth value. Negative values are closer to the camera)]_Offset("Offset", Float) = 0.0
+		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
-		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
 		
 		[Header(Stencil)]
 		[EightBit] _Stencil ("Stencil ID", Int) = 0
@@ -40,10 +40,6 @@ Shader "Configurable/Standard"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
 		[EightBit] _ReadMask ("ReadMask", Int) = 255
 		[EightBit] _WriteMask ("WriteMask", Int) = 255
-		
-		[Header(Blending)]
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 	}
 	
 	CGINCLUDE
@@ -53,6 +49,7 @@ Shader "Configurable/Standard"
 	half4 _Color;
 	half _Glossiness;
 	half _Metallic;
+	half _UseVertexColor;
 
 	struct Input 
 	{
@@ -63,9 +60,7 @@ Shader "Configurable/Standard"
 	void surf (Input IN, inout SurfaceOutputStandard o) 
 	{
 		half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-		#ifdef VERTEX_COLOR
-		c *= IN.color;
-		#endif
+		c = lerp(c, c * IN.color, _UseVertexColor);
 		o.Albedo = c.rgb;
 		o.Alpha = c.a;
 		o.Metallic = _Metallic;
@@ -93,7 +88,7 @@ Shader "Configurable/Standard"
         ZWrite [_ZWrite]
         ZTest [_ZTest]
         ColorMask [_ColorMask]
-        Blend [_BlendSrc] [_BlendDst]
+        Blend Off
 
 		CGPROGRAM
 		#pragma surface surf Standard fullforwardshadows addshadow

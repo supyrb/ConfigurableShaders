@@ -22,21 +22,20 @@ Shader "Configurable/Unlit/Cutout"
 		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 		
 		[Header(Rendering)]
-		_Offset("Offset", Float) = 0
+		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
-		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
 		
 		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Int) = 0
+		[EightBit] _Stencil ("Stencil ID", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		// Readmask and Writemask are hidden by default, remove [HideInInspector] if you need them
-		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
-		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
+		[EightBit] _ReadMask ("ReadMask", Int) = 255
+		[EightBit] _WriteMask ("WriteMask", Int) = 255
 		
 		[Header(Blending)]
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5

@@ -31,13 +31,13 @@ Shader "Configurable/UI"
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 		
 		[Header(Stencil)]
-		_Stencil ("Stencil ID [0;255]", Int) = 0
-		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 8
+		[EightBit] _Stencil ("Stencil ID", Int) = 0
+		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		[HideInInspector] _StencilWriteMask ("Stencil Write Mask [0;255]", Float) = 255
-		[HideInInspector] _StencilReadMask ("Stencil Read Mask [0;255]", Float) = 255
+		[EightBit] _ReadMask ("ReadMask", Int) = 255
+		[EightBit] _WriteMask ("WriteMask", Int) = 255
 	}
 
 	CGINCLUDE
