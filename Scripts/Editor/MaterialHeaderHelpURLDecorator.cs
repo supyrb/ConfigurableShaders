@@ -23,7 +23,7 @@ namespace Supyrb
 		private GUIContent headerGuiContent;
 		private GUIContent buttonGuiContent;
 		private const float iconWidth = 15f;
-		private const float iconHeight = 25f;
+		private const float iconHeight = 20f;
 		private const float paddingTop = 12f;
 		
 
