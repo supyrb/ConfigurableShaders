@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SimpleToggleDrawer.cs" company="Supyrb">
-//   Copyright (c)  Supyrb. All rights reserved.
+// <copyright file="MaterialSimpleToggleDrawer.cs" company="Supyrb">
+//   Copyright (c) 2019 Supyrb. All rights reserved.
 // </copyright>
 // <author>
 //   Johannes Deml
@@ -14,11 +14,14 @@ using UnityEngine;
 
 namespace Supyrb
 {
-	public class SimpleToggleDrawer : MaterialPropertyDrawer
-	{	
-		public override void OnGUI (Rect position, MaterialProperty prop, String label, MaterialEditor editor)
+	/// <summary>
+	/// Material Property Drawer [SimpleToggle] behaves like [Toggle] but does not create any shader variants
+	/// </summary>
+	public class MaterialSimpleToggleDrawer : MaterialPropertyDrawer
+	{
+		public override void OnGUI(Rect position, MaterialProperty prop, String label, MaterialEditor editor)
 		{
-			bool value = (prop.floatValue>0.0f);
+			var value = prop.floatValue > 0.0f;
 
 			EditorGUI.BeginChangeCheck();
 			EditorGUI.showMixedValue = prop.hasMixedValue;
@@ -28,7 +31,7 @@ namespace Supyrb
 			EditorGUI.showMixedValue = false;
 			if (EditorGUI.EndChangeCheck())
 			{
-				prop.floatValue = value ?1.0f :0.0f;
+				prop.floatValue = value ? 1.0f : 0.0f;
 			}
 		}
 	}

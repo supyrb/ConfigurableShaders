@@ -16,7 +16,7 @@
 Shader "Configurable/Unlit/Cutout"
 {
 	Properties
-	{		
+	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5

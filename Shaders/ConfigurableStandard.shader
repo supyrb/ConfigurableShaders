@@ -25,14 +25,14 @@ Shader "Configurable/Standard"
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
 		
-		[Header(Rendering)]
+		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
 		
-		[Header(Stencil)]
+		[HeaderHelpURL(Stencil, https, github.com supyrb ConfigurableShaders wiki Stencil)]
 		[EightBit] _Stencil ("Stencil ID", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
