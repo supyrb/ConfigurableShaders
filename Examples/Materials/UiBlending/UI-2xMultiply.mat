@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: UI-2xMultiply
   m_Shader: {fileID: 4800000, guid: c55c8efee1a74e842be6281d307c1567, type: 3}
-  m_ShaderKeywords: UNITY_UI_ALPHACLIP
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,6 +29,7 @@ Material:
     - _BlendSrc: 2
     - _BlendSrcA: 5
     - _ColorMask: 15
+    - _ReadMask: 255
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilFail: 0
@@ -36,6 +37,7 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _StencilZFail: 0
-    - _UseUIAlphaClip: 1
+    - _UseUIAlphaClip: 0
+    - _WriteMask: 255
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
