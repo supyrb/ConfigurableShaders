@@ -15,8 +15,8 @@ This repository is is primarily documenting all the awesome features that aren't
 ## Roadmap
 * ~Document Blend Modes~
 * Add common shader files for easy usage
-  * ~Surface Opaque shader~
-  * Unlit Opaque Shader
+  * ~Surface Opaque Shader~
+  * ~Unlit Opaque Shader~
   * Surface Cutout Shader
   * ~Unlit Cutout Shader~
   * Surface Transparent Shader
