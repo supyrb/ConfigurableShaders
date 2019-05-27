@@ -20,7 +20,7 @@ This repository is is primarily documenting all the awesome features that aren't
   * Surface Cutout Shader
   * ~Unlit Cutout Shader~
   * Surface Transparent Shader
-  * Unlit Transparent Shader
+  * ~Unlit Transparent Shader~
   * ~UI blend mode Shader~
 * Add example scenes and example Materials showing off different use cases
 
