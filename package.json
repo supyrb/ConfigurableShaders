@@ -1,0 +1,17 @@
+{
+	"name": "com.supyrb.configurableshaders",
+	"displayName": "Configurable Shaders",
+	"description": "Powerful Shaders that will make your life easier!",
+	"keywords": [
+		"Shader",
+		"Configurable",
+		"Configurable Shaders",
+		"Supyrb"
+	],
+	"category": "Utility",
+	"version": "0.5.0",
+	"unity": "2018.1",
+	"dependencies": {
+		
+	}
+}
