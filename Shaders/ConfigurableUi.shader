@@ -21,6 +21,7 @@ Shader "Configurable/UI"
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
+		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)]_ColorMask ("Color Mask", Float) = 15 
@@ -44,7 +45,8 @@ Shader "Configurable/UI"
 	#include "UnityCG.cginc"
 	#include "UnityUI.cginc"
 	
-	fixed4 _Color;
+	half4 _Color;
+	half _UseVertexColor;
 	fixed4 _TextureSampleAdd;
 	float4 _ClipRect;
 	
@@ -59,7 +61,7 @@ Shader "Configurable/UI"
 	struct v2f
 	{
 		float4 vertex	: SV_POSITION;
-		fixed4 color	: COLOR;
+		half4 color	: COLOR;
 		float2 texcoord	 : TEXCOORD0;
 		float4 worldPosition : TEXCOORD1;
 		UNITY_VERTEX_OUTPUT_STEREO
@@ -76,13 +78,13 @@ Shader "Configurable/UI"
 
 		OUT.texcoord = IN.texcoord;
 	 
-		OUT.color = IN.color * _Color;
+		OUT.color = lerp(_Color, IN.color * _Color, _UseVertexColor);
 		return OUT;
 	}
 
 	sampler2D _MainTex;
 
-	fixed4 frag(v2f IN) : SV_Target
+	half4 frag(v2f IN) : SV_Target
 	{
 		half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 	 

@@ -22,7 +22,9 @@ This repository is is primarily documenting all the awesome features that aren't
   * Surface Transparent Shader
   * ~Unlit Transparent Shader~
   * ~UI blend mode Shader~
+* ~Support vertex color for every shader~
 * Add example scenes and example Materials showing off different use cases
+* Make it compliant with UPM
 
 ## Contribute
 We would ❤love to hear from you. 

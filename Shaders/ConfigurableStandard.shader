@@ -23,7 +23,7 @@ Shader "Configurable/Standard"
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
-		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
+		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
@@ -47,9 +47,9 @@ Shader "Configurable/Standard"
 	
 	sampler2D _MainTex;
 	half4 _Color;
+	half _UseVertexColor;
 	half _Glossiness;
 	half _Metallic;
-	half _UseVertexColor;
 
 	struct Input 
 	{

@@ -36,6 +36,7 @@ Material:
     - _StencilFail: 0
     - _StencilOp: 0
     - _StencilZFail: 0
+    - _UseVertexColor: 1
     - _WriteMask: 255
     - _ZTest: 4
     - _ZWrite: 1

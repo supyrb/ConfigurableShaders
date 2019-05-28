@@ -19,7 +19,7 @@ Shader "Configurable/Unlit/Transparent"
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
-		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
+		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
@@ -45,10 +45,17 @@ Shader "Configurable/Unlit/Transparent"
 	CGINCLUDE
 	#include "UnityCG.cginc"
 	
-	fixed4 _Color;
+	half4 _Color;
+	half _UseVertexColor;
 	sampler2D _MainTex;
 	float4 _MainTex_ST;
-	half _UseVertexColor;
+	
+	struct appdata_t {
+		float4 vertex : POSITION;
+		float2 texcoord : TEXCOORD0;
+		half4 color: COLOR;
+		UNITY_VERTEX_INPUT_INSTANCE_ID
+	};
 	
 	struct v2f
 	{
@@ -58,13 +65,6 @@ Shader "Configurable/Unlit/Transparent"
 		#ifdef SOFTPARTICLES_ON
 		float4 projPos : TEXCOORD1;
 		#endif
-	};
-	
-	struct appdata_t {
-		float4 vertex : POSITION;
-		float2 texcoord : TEXCOORD0;
-		half4 color: COLOR;
-		UNITY_VERTEX_INPUT_INSTANCE_ID
 	};
 	
 	v2f vert (appdata_t v)
@@ -82,13 +82,12 @@ Shader "Configurable/Unlit/Transparent"
 		return o;
 	}
 	
-	fixed4 frag (v2f i) : SV_Target
+	half4 frag (v2f i) : SV_Target
 	{
 		#ifdef SOFTPARTICLES_ON
 		float sceneZ = LinearEyeDepth (SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)));
 		float partZ = i.projPos.z;
 		float fade = saturate (_InvFade * (sceneZ-partZ));
-		fade = min(fade + isEqual(_InvFade, 3.0), 1);
 		i.color.a *= fade;
 		#endif
 		

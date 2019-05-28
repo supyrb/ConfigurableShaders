@@ -19,6 +19,7 @@ Shader "Configurable/Unlit/Opaque"
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
+		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
@@ -44,21 +45,25 @@ Shader "Configurable/Unlit/Opaque"
 	CGINCLUDE
 	#include "UnityCG.cginc"
 	
-	fixed4 _Color;
+	half4 _Color;
+	half _UseVertexColor;
 	sampler2D _MainTex;
 	float4 _MainTex_ST;
 	fixed _Cutoff;
+	
+	
+	struct appdata_t {
+		float4 vertex : POSITION;
+		float2 texcoord : TEXCOORD0;
+		half4 color: COLOR;
+		UNITY_VERTEX_INPUT_INSTANCE_ID
+	};
 	
 	struct v2f
 	{
 		float4 vertex : SV_POSITION;
 		float2 texcoord : TEXCOORD0;
-	};
-	
-	struct appdata_t {
-		float4 vertex : POSITION;
-		float2 texcoord : TEXCOORD0;
-		UNITY_VERTEX_INPUT_INSTANCE_ID
+		half4 color: COLOR;
 	};
 	
 	v2f vert (appdata_t v)
@@ -68,13 +73,14 @@ Shader "Configurable/Unlit/Opaque"
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		o.vertex = UnityObjectToClipPos(v.vertex);
 		o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
+		o.color = lerp(_Color, v.color * _Color, _UseVertexColor);
 		return o;
 	}
 	
-	fixed4 frag (v2f i) : SV_Target
+	half4 frag (v2f i) : SV_Target
 	{
-		fixed4 image = tex2D(_MainTex, i.texcoord);
-		return image * _Color;
+		half4 image = tex2D(_MainTex, i.texcoord);
+		return image * i.color;
 	}
 	
 	struct v2fShadow 
