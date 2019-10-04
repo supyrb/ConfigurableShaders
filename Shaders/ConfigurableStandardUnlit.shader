@@ -38,8 +38,8 @@ Shader "Configurable/Unlit/Opaque"
 		[EightBit] _WriteMask ("WriteMask", Int) = 255
 		
 		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 1
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 0
 	}
 	
 	CGINCLUDE
@@ -49,7 +49,6 @@ Shader "Configurable/Unlit/Opaque"
 	half _UseVertexColor;
 	sampler2D _MainTex;
 	float4 _MainTex_ST;
-	fixed _Cutoff;
 	
 	
 	struct appdata_t {
@@ -86,7 +85,6 @@ Shader "Configurable/Unlit/Opaque"
 	struct v2fShadow 
 	{
 		float4 vertex : SV_POSITION;
-		float2 texcoord : TEXCOORD0;
 		UNITY_VERTEX_OUTPUT_STEREO
 	};
 
@@ -96,13 +94,11 @@ Shader "Configurable/Unlit/Opaque"
 		UNITY_SETUP_INSTANCE_ID(v);
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		o.vertex = UnityObjectToClipPos(v.vertex);
-		o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 		return o;
 	}
 
 	float4 fragShadow( v2fShadow i ) : SV_Target
 	{
-		fixed4 image = tex2D(_MainTex, i.texcoord);
 		SHADOW_CASTER_FRAGMENT(i)
 	}
 	
@@ -123,7 +119,7 @@ Shader "Configurable/Unlit/Opaque"
 
 		Pass
 		{
-			Tags {"Queue"="AlphaTest" "RenderType"="TransparentCutout"}
+			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
 			LOD 200
 			Cull [_Culling]
 			Offset [_Offset], [_Offset]
