@@ -7,7 +7,7 @@
 // </repository>
 // <author>
 //   Johannes Deml
-//   send@johannesdeml.com
+//   public@deml.io
 // </author>
 // <documentation>
 //   https://github.com/supyrb/ConfigurableShaders/wiki
