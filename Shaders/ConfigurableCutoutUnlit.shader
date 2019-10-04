@@ -7,7 +7,7 @@
 // </repository>
 // <author>
 //   Johannes Deml
-//   send@johannesdeml.com
+//   public@deml.io
 // </author>
 // <documentation>
 //   https://github.com/supyrb/ConfigurableShaders/wiki/Stencil
@@ -39,8 +39,8 @@ Shader "Configurable/Unlit/Cutout"
 		[EightBit] _WriteMask ("WriteMask", Int) = 255
 		
 		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 1
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 0
 	}
 	
 	CGINCLUDE
