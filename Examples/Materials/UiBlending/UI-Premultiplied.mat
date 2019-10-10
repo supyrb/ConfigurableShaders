@@ -28,7 +28,8 @@ Material:
     - _BlendDstA: 10
     - _BlendSrc: 1
     - _BlendSrcA: 5
-    - _ColorMask: 15
+    - _ColorMask: 14
+    - _ReadMask: 255
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilFail: 0
@@ -37,5 +38,7 @@ Material:
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _UseUIAlphaClip: 1
+    - _UseVertexColor: 1
+    - _WriteMask: 255
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

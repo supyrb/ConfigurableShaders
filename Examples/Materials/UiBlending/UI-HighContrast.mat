@@ -28,7 +28,7 @@ Material:
     - _BlendDstA: 10
     - _BlendSrc: 2
     - _BlendSrcA: 5
-    - _ColorMask: 15
+    - _ColorMask: 14
     - _ReadMask: 255
     - _Stencil: 0
     - _StencilComp: 8
