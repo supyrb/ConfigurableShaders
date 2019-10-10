@@ -40,6 +40,10 @@ Shader "Configurable/Standard"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
 		[EightBit] _ReadMask ("ReadMask", Int) = 255
 		[EightBit] _WriteMask ("WriteMask", Int) = 255
+		
+		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 1
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 0
 	}
 	
 	CGINCLUDE
@@ -70,6 +74,15 @@ Shader "Configurable/Standard"
 	
 	SubShader 
 	{
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+        LOD 300
+        Cull [_Culling]
+        Offset [_Offset], [_Offset]
+        ZWrite [_ZWrite]
+        ZTest [_ZTest]
+        ColorMask [_ColorMask]
+        Blend [_BlendSrc] [_BlendDst]
+		
 		Stencil
 		{
 			Ref [_Stencil]
@@ -80,15 +93,6 @@ Shader "Configurable/Standard"
 			Fail [_StencilFail]
 			ZFail [_StencilZFail]
 		}
-
-		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-        LOD 100
-        Cull [_Culling]
-        Offset [_Offset], [_Offset]
-        ZWrite [_ZWrite]
-        ZTest [_ZTest]
-        ColorMask [_ColorMask]
-        Blend Off
 
 		CGPROGRAM
 		#pragma surface surf Standard fullforwardshadows addshadow

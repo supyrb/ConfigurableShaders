@@ -33,7 +33,7 @@ Shader "Configurable/Reference/Stencil"
 		[Enum(UnityEngine.Rendering.CullMode)] _CullMode ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
-		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 15
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
 	}
 	
 	CGINCLUDE
@@ -81,6 +81,14 @@ Shader "Configurable/Reference/Stencil"
 		
 	SubShader
 	{
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+		LOD 100
+		Cull [_CullMode]
+		Offset [_Offset], [_Offset]
+		ZWrite [_ZWrite]
+		ZTest [_ZTest]
+		ColorMask [_ColorMask]
+
 		Stencil
 		{
 			Ref [_Stencil]
@@ -94,14 +102,6 @@ Shader "Configurable/Reference/Stencil"
 
 		Pass
 		{
-			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-			LOD 100
-			Cull [_CullMode]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
-			ColorMask [_ColorMask]
-			
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert
@@ -113,12 +113,7 @@ Shader "Configurable/Reference/Stencil"
 		Pass
 		{
 			Name "ShadowCaster"
-			LOD 80
 			Tags { "LightMode" = "ShadowCaster" }
-			Cull [_CullMode]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
 			
 			CGPROGRAM
 			#pragma vertex vertShadow	

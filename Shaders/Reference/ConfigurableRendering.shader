@@ -72,16 +72,16 @@ Shader "Configurable/Reference/Rendering"
 		
 	SubShader
 	{
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+		LOD 100
+		Cull [_Culling]
+		Offset [_Offset], [_Offset]
+		ZWrite [_ZWrite]
+		ZTest [_ZTest]
+		ColorMask [_ColorMask]
+
 		Pass
-		{
-			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-			LOD 100
-			Cull [_Culling]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
-			ColorMask [_ColorMask]
-			
+		{			
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert
@@ -94,11 +94,6 @@ Shader "Configurable/Reference/Rendering"
 		{
 			Name "ShadowCaster"
 			Tags { "LightMode" = "ShadowCaster" }
-			LOD 80
-			Cull [_Culling]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
 			
 			CGPROGRAM
 			#pragma vertex vertShadow
