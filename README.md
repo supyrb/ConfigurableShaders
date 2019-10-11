@@ -37,3 +37,7 @@ We would ❤love to hear from you.
 * [@Supyrb](https://twitter.com/supyrb) (Owner)
 * [@DemlJohannes](https://twitter.com/DemlJohannes)
 * [@bgolus](https://twitter.com/bgolus)
+
+## License
+* MIT - see [LICENSE](./LICENSE)
+* Stanford Bunny from https://graphics.stanford.edu/data/3Dscanrep/
