@@ -19,6 +19,8 @@ Shader "Configurable/Debug/Depth01"
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
+		[SimpleToggle] _InvertDepth("Invert Depth", Float) = 0.0
+		[RangeMapper01]_DepthRemap("Remap Depth", Vector) = (0,1,0,1)
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
@@ -46,6 +48,8 @@ Shader "Configurable/Debug/Depth01"
 	
 	half4 _Color;
 	half _UseVertexColor;
+	half _InvertDepth;
+	float4 _DepthRemap;
 	
 	struct appdata_t {
 		float4 vertex : POSITION;
@@ -66,6 +70,8 @@ Shader "Configurable/Debug/Depth01"
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		o.vertex = UnityObjectToClipPos(v.vertex);
 		float depth = COMPUTE_DEPTH_01;
+		depth = lerp(depth, 1.0 - depth, _InvertDepth);
+		depth = (depth - _DepthRemap.x) / (_DepthRemap.y - _DepthRemap.x);
 		o.color = depth.xxxx * lerp(_Color, v.color * _Color, _UseVertexColor);
 		return o;
 	}

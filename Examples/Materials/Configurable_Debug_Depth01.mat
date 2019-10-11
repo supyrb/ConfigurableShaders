@@ -67,6 +67,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.903
     - _GlossyReflections: 1
+    - _InvertDepth: 0
     - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -82,10 +83,11 @@ Material:
     - _StencilOp: 0
     - _StencilZFail: 0
     - _UVSec: 0
-    - _UseVertexColor: 1
+    - _UseVertexColor: 0
     - _WriteMask: 255
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DepthRemap: {r: 0, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
