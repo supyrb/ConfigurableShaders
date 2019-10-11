@@ -6,23 +6,23 @@ Don't repeat yourself by writing the same shaders over and over again with littl
 This repository is is primarily documenting all the awesome features that aren't really covered in the Unity Docs.
 [Unity Thread](https://forum.unity.com/threads/painless-stencil-shader-with-enums.518966)
 
-## Wiki
+## Wiki ([Home](../../wiki))
 * [Rendering](../../wiki/Rendering)
 * [Stencil](../../wiki/Stencil)
 * [Blending](../../wiki/Blending)
 * [BlendModes](../../wiki/BlendModes)
+* [PropertyDrawers](../../wiki/PropertyDrawers)
+* [DebugShaders](../../wiki/DebugShaders)
+
+## Examples
+
+Name | Example
+--- | ---
+World Normal Shader | ![WorldNormalShader](../../wiki/images/DebugShaders/WorldNormalDemo.gif)
+Depth01 Shader | ![Depth01Shader](../../wiki/images/DebugShaders/Depth01Demo.gif)
+Standard Material Properties | ![Depth01Shader](../../wiki/images/ConfigurableStandardMaterial.png)
 
 ## Roadmap
-* ~Document Blend Modes~
-* Add common shader files for easy usage
-  * ~Surface Opaque Shader~
-  * ~Unlit Opaque Shader~
-  * Surface Cutout Shader
-  * ~Unlit Cutout Shader~
-  * Surface Transparent Shader
-  * ~Unlit Transparent Shader~
-  * ~UI blend mode Shader~
-* ~Support vertex color for every shader~
 * Add example scenes and example Materials showing off different use cases
 * Make it compliant with UPM
 
