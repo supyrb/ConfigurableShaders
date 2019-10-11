@@ -95,7 +95,7 @@ Shader "Configurable/Standard"
 		}
 
 		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows addshadow
+		#pragma surface surf Standard fullforwardshadows addshadow keepalpha
 		#pragma target 3.0
 		ENDCG
 	}

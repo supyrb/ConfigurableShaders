@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConfigurableCutoutLit.shader" company="Supyrb">
+// <copyright file="ConfigurableTransparentLit.shader" company="Supyrb">
 //   Copyright (c) 2019 Supyrb. All rights reserved.
 // </copyright>
 // <repository>
@@ -14,13 +14,12 @@
 // </documentation>
 // --------------------------------------------------------------------------------------------------------------------
 
-Shader "Configurable/Lit/Cutout" 
+Shader "Configurable/Lit/Transparent" 
 {
 	Properties 
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
-		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
@@ -51,7 +50,6 @@ Shader "Configurable/Lit/Cutout"
 
 	
 	sampler2D _MainTex;
-	
 	half4 _Color;
 	half _UseVertexColor;
 	half _Glossiness;
@@ -76,7 +74,7 @@ Shader "Configurable/Lit/Cutout"
 	
 	SubShader 
 	{
-		Tags { "RenderType"="TransparentCutout" "Queue" = "AlphaTest" }
+		Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
         LOD 300
         Cull [_Culling]
         Offset [_Offset], [_Offset]
@@ -97,9 +95,8 @@ Shader "Configurable/Lit/Cutout"
 		}
 
 		CGPROGRAM
-		#pragma surface surf Standard alphatest:_Cutoff fullforwardshadows addshadow keepalpha
+		#pragma surface surf Standard keepalpha
 		#pragma target 3.0
 		ENDCG
 	}
-	FallBack "Diffuse"
 }
