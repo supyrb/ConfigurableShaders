@@ -19,6 +19,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
-    m_Floats: []
+    m_Floats:
+    - _EightBit: 0
+    - _SimpleToggle: 0
+    - _Tooltip: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _RangeMapper: {r: 0, g: 1, b: 0, a: 1}
+    - _RangeMapper01: {r: 0, g: 1, b: 0, a: 1}

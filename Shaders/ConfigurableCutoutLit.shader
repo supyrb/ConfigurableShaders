@@ -14,12 +14,13 @@
 // </documentation>
 // --------------------------------------------------------------------------------------------------------------------
 
-Shader "Configurable/Standard" 
+Shader "Configurable/Lit/Cutout" 
 {
 	Properties 
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
@@ -50,6 +51,7 @@ Shader "Configurable/Standard"
 
 	
 	sampler2D _MainTex;
+	
 	half4 _Color;
 	half _UseVertexColor;
 	half _Glossiness;
@@ -74,7 +76,7 @@ Shader "Configurable/Standard"
 	
 	SubShader 
 	{
-		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+		Tags { "RenderType"="TransparentCutout" "Queue" = "AlphaTest" }
         LOD 300
         Cull [_Culling]
         Offset [_Offset], [_Offset]
@@ -95,7 +97,7 @@ Shader "Configurable/Standard"
 		}
 
 		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows addshadow
+		#pragma surface surf Standard alphatest:_Cutoff fullforwardshadows addshadow
 		#pragma target 3.0
 		ENDCG
 	}
