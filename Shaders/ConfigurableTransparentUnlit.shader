@@ -99,6 +99,13 @@ Shader "Configurable/Unlit/Transparent"
 	SubShader
 	{
 		Tags { "Queue" = "Transparent" "RenderType" = "Transparent"}
+		LOD 150
+		Cull [_Culling]
+		Offset [_Offset], [_Offset]
+		ZWrite [_ZWrite]
+		ZTest [_ZTest]
+		ColorMask [_ColorMask]
+		Blend [_BlendSrc] [_BlendDst]
 		
 		Stencil
 		{
@@ -112,15 +119,7 @@ Shader "Configurable/Unlit/Transparent"
 		}
 
 		Pass
-		{
-			LOD 200
-			Cull [_Culling]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
-			ColorMask [_ColorMask]
-			Blend [_BlendSrc] [_BlendDst]
-			
+		{			
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert

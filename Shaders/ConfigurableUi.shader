@@ -24,7 +24,7 @@ Shader "Configurable/UI"
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
-		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)]_ColorMask ("Color Mask", Float) = 15 
+		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)]_ColorMask ("Color Mask", Float) = 14
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 1
 		
 		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
@@ -109,6 +109,13 @@ Shader "Configurable/UI"
 			"CanUseSpriteAtlas"="True"
 		}
 		
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		ZTest [unity_GUIZTestMode]
+		Blend [_BlendSrc] [_BlendDst]
+		ColorMask [_ColorMask]
+		
 		Stencil
 		{
 			Ref [_Stencil]
@@ -117,17 +124,9 @@ Shader "Configurable/UI"
 			ReadMask [_StencilReadMask]
 			WriteMask [_StencilWriteMask]
 		}
- 
-		Cull Off
-		Lighting Off
-		ZWrite Off
-		ZTest [unity_GUIZTestMode]
-		Blend [_BlendSrc] [_BlendDst]
-		ColorMask [_ColorMask]
 		
 		Pass
 		{
-		
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag

@@ -108,6 +108,15 @@ Shader "Configurable/Debug/WorldNormals"
 	
 	SubShader
 	{
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
+		LOD 100
+		Cull [_Culling]
+		Offset [_Offset], [_Offset]
+		ZWrite [_ZWrite]
+		ZTest [_ZTest]
+		ColorMask [_ColorMask]
+		Blend [_BlendSrc] [_BlendDst]
+		
 		Stencil
 		{
 			Ref [_Stencil]
@@ -121,20 +130,11 @@ Shader "Configurable/Debug/WorldNormals"
 		
 		Pass
 		{
-			Tags { "RenderType"="Opaque" "Queue" = "Geometry" }
-			LOD 200
-			Cull [_Culling]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
-			ColorMask [_ColorMask]
-			Blend [_BlendSrc] [_BlendDst]
-			
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma multi_compile_instancing // allow instanced shadow pass for most of the shaders
+			#pragma multi_compile_instancing
 			ENDCG
 		}
 		
@@ -143,19 +143,15 @@ Shader "Configurable/Debug/WorldNormals"
 		{
 			Name "ShadowCaster"
 			Tags { "LightMode" = "ShadowCaster" }
-			LOD 80
-			Cull [_Culling]
-			Offset [_Offset], [_Offset]
-			ZWrite [_ZWrite]
-			ZTest [_ZTest]
 			
 			CGPROGRAM
 			#pragma vertex vertShadow
 			#pragma fragment fragShadow
 			#pragma target 2.0
 			#pragma multi_compile_shadowcaster
-			#pragma multi_compile_instancing // allow instanced shadow pass for most of the shaders
+			#pragma multi_compile_instancing
 			ENDCG
 		}
 	}
+	Fallback "Legacy Shaders/Diffuse"
 }
