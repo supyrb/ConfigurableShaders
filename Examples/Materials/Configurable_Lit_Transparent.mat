@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _BlendDst: 10
     - _BlendSrc: 5
-    - _ColorMask: 15
+    - _ColorMask: 14
     - _Culling: 1
     - _Glossiness: 0.5
     - _Metallic: 0
