@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.6.0](https://github.com/supyrb/ConfigurableShaders/tree/0.6.0) (2019-10-14)
+[Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.5.2...0.6.0)
+
+**Implemented enhancements:**
+
+- Move Examples to new Repo [\#3](https://github.com/supyrb/ConfigurableShaders/issues/3)
+- Support UPM [\#2](https://github.com/supyrb/ConfigurableShaders/issues/2)
+
 ## [0.5.2](https://github.com/supyrb/ConfigurableShaders/tree/0.5.2) (2019-10-14)
 [Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.5.1...0.5.2)
 
