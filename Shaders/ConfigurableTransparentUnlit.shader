@@ -19,6 +19,8 @@ Shader "Configurable/Unlit/Transparent"
 	{
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_InvFade ("Soft Particles Factor", Range(0.01,3.0)) = 1.0
+		[SimpleToggle] _ApplySoftParticleOnRGB("Apply Soft Particle on RGB", Float) = 0.0
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
@@ -47,8 +49,12 @@ Shader "Configurable/Unlit/Transparent"
 	
 	half4 _Color;
 	half _UseVertexColor;
+	half _ApplySoftParticleOnRGB;
 	sampler2D _MainTex;
 	float4 _MainTex_ST;
+	
+	UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
+	float _InvFade;
 	
 	struct appdata_t {
 		float4 vertex : POSITION;
@@ -89,6 +95,7 @@ Shader "Configurable/Unlit/Transparent"
 		float partZ = i.projPos.z;
 		float fade = saturate (_InvFade * (sceneZ-partZ));
 		i.color.a *= fade;
+		if(_ApplySoftParticleOnRGB > 0) {i.color.rgb *= fade;}
 		#endif
 		
 		half4 col = tex2D(_MainTex, i.texcoord) * i.color;
@@ -125,6 +132,7 @@ Shader "Configurable/Unlit/Transparent"
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile_instancing
+			#pragma multi_compile_particles
 			ENDCG
 		}
 	}
