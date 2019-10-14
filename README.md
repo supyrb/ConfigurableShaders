@@ -5,6 +5,8 @@
 Don't repeat yourself by writing the same shaders over and over again with little variation. You can expose a lot of different shader settings through enum attributes!  
 This repository is is primarily documenting all the awesome features that aren't really covered in the Unity Docs.
 [Unity Thread](https://forum.unity.com/threads/painless-stencil-shader-with-enums.518966)
+> UPM: `"com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders#0.6.0"`  
+> Latest Release: [0.6.0](../../releases/latest)
 
 ## Wiki ([Home](../../wiki))
 * [Rendering](../../wiki/Rendering)
@@ -22,10 +24,6 @@ World Normal Shader | ![WorldNormalShader](../../wiki/images/DebugShaders/WorldN
 Depth01 Shader | ![Depth01Shader](../../wiki/images/DebugShaders/Depth01Demo.gif)
 Standard Material Properties | ![Depth01Shader](../../wiki/images/ConfigurableStandardMaterial.png)
 
-## Roadmap
-* Add example scenes and example Materials showing off different use cases
-* Make it compliant with UPM
-
 ## Contribute
 We would ❤love to hear from you. 
 * If you find a problem, either create a PR or file an issue
@@ -39,5 +37,5 @@ We would ❤love to hear from you.
 * [@bgolus](https://twitter.com/bgolus)
 
 ## License
-* MIT - see [LICENSE](./LICENSE)
+* MIT - see [LICENSE](./LICENSE.md)
 * Stanford Bunny from https://graphics.stanford.edu/data/3Dscanrep/
