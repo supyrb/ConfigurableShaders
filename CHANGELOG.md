@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.6.1](https://github.com/supyrb/ConfigurableShaders/tree/0.6.1) (2019-10-25)
+[Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.6.0...0.6.1)
+
+**Closed issues:**
+
+- Add Alpha to Coverage [\#9](https://github.com/supyrb/ConfigurableShaders/issues/9)
+
 ## [0.6.0](https://github.com/supyrb/ConfigurableShaders/tree/0.6.0) (2019-10-14)
 [Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.5.2...0.6.0)
 
