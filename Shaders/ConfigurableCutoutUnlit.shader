@@ -20,6 +20,7 @@ Shader "Configurable/Unlit/Cutout"
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
+		[Enum(Off,0,On,1)] _AlphaToMask("Alpha to Mask", Int) = 1
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
@@ -79,9 +80,14 @@ Shader "Configurable/Unlit/Cutout"
 	
 	fixed4 frag (v2f i) : SV_Target
 	{
-		fixed4 image = tex2D(_MainTex, i.texcoord) * i.color;
-		clip(image.a - _Cutoff);
-		return image;
+		fixed4 color = tex2D(_MainTex, i.texcoord) * i.color;
+		
+		// rescale alpha by partial derivative
+		color.a = (color.a - _Cutoff) / max(fwidth(color.a), 0.0001) + 0.5;
+		
+		clip(color.a - _Cutoff);
+		
+		return color;
 	}
 	
 	struct v2fShadow 
@@ -103,8 +109,8 @@ Shader "Configurable/Unlit/Cutout"
 
 	float4 fragShadow( v2fShadow i ) : SV_Target
 	{
-		fixed4 image = tex2D(_MainTex, i.texcoord);
-		clip(image.a - _Cutoff);
+		fixed4 color = tex2D(_MainTex, i.texcoord);		
+		clip(color.a - _Cutoff);
 		SHADOW_CASTER_FRAGMENT(i)
 	}
 	
@@ -134,6 +140,7 @@ Shader "Configurable/Unlit/Cutout"
 
 		Pass
 		{
+			AlphaToMask [_AlphaToMask]
 			CGPROGRAM
 			#pragma target 3.0
 			#pragma vertex vert
