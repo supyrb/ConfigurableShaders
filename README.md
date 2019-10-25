@@ -10,7 +10,7 @@ Configurable Shaders does three main things:
 3. Document the hidden features of shaders, that are not that apparent from the Unity Docs.
 
 [Unity Thread](https://forum.unity.com/threads/painless-stencil-shader-with-enums.518966)
-> UPM: `"com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.1"`
+> UPM: `"com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.1"`  
 > Latest Release: [0.6.1](../../releases/latest)
 
 ## Wiki ([Home](../../wiki))
