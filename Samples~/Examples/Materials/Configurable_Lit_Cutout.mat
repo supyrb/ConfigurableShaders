@@ -24,6 +24,7 @@ Material:
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaToMask: 0
     - _BlendDst: 0
     - _BlendSrc: 1
     - _ColorMask: 14
