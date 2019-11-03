@@ -10,8 +10,26 @@ Configurable Shaders does three main things:
 3. Document the hidden features of shaders, that are not that apparent from the Unity Docs.
 
 [Unity Thread](https://forum.unity.com/threads/painless-stencil-shader-with-enums.518966)
-> UPM: `"com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.1"`  
-> Latest Release: [0.6.1](../../releases/latest)
+
+## Installation
+
+### Simple Download
+[Latest Unity Packages](../../releases/latest)
+
+### Unity Package Manager (UPM)
+
+> You will need to have git installed and set in your system PATH.
+
+Find `Packages/manifest.json` in your project and add the following:
+```json
+{
+  "dependencies": {
+    "com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.2",
+    ...
+  }
+}
+```
+
 
 ## Wiki ([Home](../../wiki))
 * [Rendering](../../wiki/Rendering)
@@ -27,7 +45,7 @@ Configurable Shaders does three main things:
 * Alpha 2 Coverage is supported in the Unlit Cutout Shader ([More Information](https://github.com/supyrb/ConfigurableShaders/issues/9))
 * Easily Recreate [Diablo BlendAdd](https://www.youtube.com/watch?v=YPy2hytwDLM&feature=youtu.be&t=1217) by setting Blend to One OneMinusSrcAlpha ([More Information](https://github.com/supyrb/ConfigurableShaders/wiki/BlendModes))
 * Custom [Material PropertyDrawers](../../wiki/PropertyDrawers)
-* Single Pass Stereo Rendering for VR is not yet supported
+* Single Pass Stereo Rendering for VR
 * Shadows are also configred with the settings of the shader (which is great!)
 
 ## Examples
