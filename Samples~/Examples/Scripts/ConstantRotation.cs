@@ -30,8 +30,7 @@ namespace Supyrb
 
 		[SerializeField]
 		private Vector3 rotationAxis = Vector3.up;
-
-		[Unit("seconds")]
+		
 		[SerializeField]
 		private float degreePerSecond = 90f;
 
@@ -138,18 +137,6 @@ namespace Supyrb
 			}
 		}
 
-		public void SetRotation(Vector3PairAsset euler)
-		{
-			if (space == Space.World)
-			{
-				transform.rotation = Quaternion.Euler(euler.A);
-			}
-			else
-			{
-				transform.localRotation = Quaternion.Euler(euler.A);
-			}
-		}
-		
 		public void CalculatePerFrameRotation()
 		{
 			CalculatePerFrameRotation(deltaTime);
