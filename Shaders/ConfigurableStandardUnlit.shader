@@ -63,6 +63,7 @@ Shader "Configurable/Unlit/Opaque"
 		float4 vertex : SV_POSITION;
 		float2 texcoord : TEXCOORD0;
 		half4 color: COLOR;
+		UNITY_VERTEX_OUTPUT_STEREO
 	};
 	
 	v2f vert (appdata_t v)

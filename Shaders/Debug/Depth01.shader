@@ -61,6 +61,7 @@ Shader "Configurable/Debug/Depth01"
 	{
 		float4 vertex : SV_POSITION;
 		half4 color: COLOR;
+		UNITY_VERTEX_OUTPUT_STEREO
 	};
 	
 	v2f vert (appdata_t v)

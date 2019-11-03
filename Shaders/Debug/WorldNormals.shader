@@ -59,6 +59,7 @@ Shader "Configurable/Debug/WorldNormals"
 		float4 vertex : SV_POSITION;
 		half3 worldNormal : TEXCOORD0;
 		half4 color: COLOR;
+		UNITY_VERTEX_OUTPUT_STEREO
 	};
 	
 	v2f vert (appdata_t v)

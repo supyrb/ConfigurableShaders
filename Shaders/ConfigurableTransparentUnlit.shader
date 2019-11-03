@@ -71,6 +71,7 @@ Shader "Configurable/Unlit/Transparent"
 		#ifdef SOFTPARTICLES_ON
 		float4 projPos : TEXCOORD1;
 		#endif
+		UNITY_VERTEX_OUTPUT_STEREO
 	};
 	
 	v2f vert (appdata_t v)
