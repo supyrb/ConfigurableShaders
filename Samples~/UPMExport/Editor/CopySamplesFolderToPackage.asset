@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c29ed6e3c24f93865b4bc2df8b9c73, type: 3}
-  m_Name: ExportSignals
+  m_Script: {fileID: 11500000, guid: a9ae3df7852e4d0b842f2f8d26bf39a4, type: 3}
+  m_Name: CopySamplesFolderToPackage
   m_EditorClassIdentifier: 
-  folderPaths:
-  - Assets/ConfigurableShaders
-  exportOptions: 2
-  targetFile: Builds/ConfigurableShaders-{Version}.unitypackage
+  sourceFolder: Assets/ConfigurableSamples
+  targetFolder: Assets/ConfigurableShaders/Samples~
+  replace: 1
