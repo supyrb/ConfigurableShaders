@@ -24,7 +24,7 @@ Find `Packages/manifest.json` in your project and add the following:
 ```json
 {
   "dependencies": {
-    "com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.2",
+    "com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.6.3",
     "...": "..."
   }
 }
