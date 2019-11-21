@@ -22,6 +22,7 @@ Shader "Configurable/UI"
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
+		[SimpleToggle] _AlphaBrightnessControl("Alpha controls Brightness", Float) = 0.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)]_ColorMask ("Color Mask", Float) = 14
@@ -47,6 +48,7 @@ Shader "Configurable/UI"
 	
 	half4 _Color;
 	half _UseVertexColor;
+	half _AlphaBrightnessControl;
 	fixed4 _TextureSampleAdd;
 	float4 _ClipRect;
 	
@@ -78,7 +80,9 @@ Shader "Configurable/UI"
 
 		OUT.texcoord = IN.texcoord;
 	 
-		OUT.color = lerp(_Color, IN.color * _Color, _UseVertexColor);
+		half4 color = lerp(_Color, IN.color * _Color, _UseVertexColor);
+		color.rgb *= lerp(1.0, color.a, _AlphaBrightnessControl);
+		OUT.color = color;
 		return OUT;
 	}
 
