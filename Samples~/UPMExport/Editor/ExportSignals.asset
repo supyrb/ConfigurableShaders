@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ExportSignals
   m_EditorClassIdentifier: 
   folderPaths:
-  - Assets/Signals
+  - Assets/ConfigurableShaders
   exportOptions: 2
-  targetFile: Builds/Signals-{Version}.unitypackage
+  targetFile: Builds/ConfigurableShaders-{Version}.unitypackage

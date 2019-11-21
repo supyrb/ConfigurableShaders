@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ae3df7852e4d0b842f2f8d26bf39a4, type: 3}
   m_Name: CopyExamplesFolder
   m_EditorClassIdentifier: 
-  sourceFolder: Assets/SignalSamples
-  targetFolder: Assets/Signals/Samples~
+  sourceFolder: Assets/ConfigurableSamples
+  targetFolder: Assets/ConfigurableShaders/Samples~
   replace: 1

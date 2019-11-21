@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ExportSignalSamples
   m_EditorClassIdentifier: 
   folderPaths:
-  - Assets/SignalSamples
+  - Assets/ConfigurableSamples
   exportOptions: 2
-  targetFile: Builds/SignalSamples-{Version}.unitypackage
+  targetFile: Builds/ConfigurableShaderSamples-{Version}.unitypackage
