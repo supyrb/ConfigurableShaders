@@ -74,4 +74,4 @@ We would ❤love to hear from you.
 * Stanford Bunny from https://graphics.stanford.edu/data/3Dscanrep/
 
 
-*Made by ![💥Supyrb](https://supyrb.com/data/supyrb-logo-inline.svg)*
+*Made by ![💥Supyrb](https://supyrb.com/data/supyrb-inline-logo.svg)*
