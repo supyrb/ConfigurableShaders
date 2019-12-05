@@ -72,3 +72,6 @@ We would ❤love to hear from you.
 ## License
 * MIT - see [LICENSE](./LICENSE.md)
 * Stanford Bunny from https://graphics.stanford.edu/data/3Dscanrep/
+
+
+*Made by ![💥Supyrb](https://supyrb.com/data/supyrb-logo-inline.svg)*
