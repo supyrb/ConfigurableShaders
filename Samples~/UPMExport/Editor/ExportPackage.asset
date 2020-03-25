@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c29ed6e3c24f93865b4bc2df8b9c73, type: 3}
   m_Name: ExportPackage
   m_EditorClassIdentifier: 
-  folderPaths:
-  - Assets/ConfigurableShaders
+  assetPaths:
+  - Assets/ConfigurableShaders/Scripts
+  - Assets/ConfigurableShaders/Shaders
+  - Assets/ConfigurableShaders/CHANGELOG.md
+  - Assets/ConfigurableShaders/LICENSE.md
+  - Assets/ConfigurableShaders/package.json
+  - Assets/ConfigurableShaders/README.md
   exportOptions: 2
   targetFile: Builds/ConfigurableShaders-{Version}.unitypackage
