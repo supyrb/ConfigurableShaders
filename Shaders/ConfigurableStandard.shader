@@ -18,11 +18,12 @@ Shader "Configurable/Standard"
 {
 	Properties 
 	{
-		[HDR] _Color("Color", Color) = (1,1,1,1)
+		_Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
+		[HDR] _EmissionColor("Emission Color", Color) = (0,0,0,1)
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
@@ -51,6 +52,7 @@ Shader "Configurable/Standard"
 	
 	sampler2D _MainTex;
 	half4 _Color;
+	half4 _EmissionColor;
 	half _UseVertexColor;
 	half _Glossiness;
 	half _Metallic;
@@ -69,6 +71,7 @@ Shader "Configurable/Standard"
 		o.Alpha = c.a;
 		o.Metallic = _Metallic;
         o.Smoothness = _Glossiness;
+		o.Emission = _EmissionColor;
 	}
 	ENDCG
 	

@@ -18,17 +18,18 @@ Shader "Configurable/Lit/Transparent"
 {
 	Properties 
 	{
-		[HDR] _Color("Color", Color) = (1,1,1,1)
+		_Color("Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 				
 		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
+		[HDR] _EmissionColor("Emission Color", Color) = (0,0,0,1)
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 1.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
-		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
+		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
 		
@@ -42,8 +43,8 @@ Shader "Configurable/Lit/Transparent"
 		[EightBit] _WriteMask ("WriteMask", Int) = 255
 		
 		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 1
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 0
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
 	}
 	
 	CGINCLUDE
@@ -51,6 +52,7 @@ Shader "Configurable/Lit/Transparent"
 	
 	sampler2D _MainTex;
 	half4 _Color;
+	half4 _EmissionColor;
 	half _UseVertexColor;
 	half _Glossiness;
 	half _Metallic;
@@ -69,6 +71,7 @@ Shader "Configurable/Lit/Transparent"
 		o.Alpha = c.a;
 		o.Metallic = _Metallic;
         o.Smoothness = _Glossiness;
+		o.Emission = _EmissionColor;
 	}
 	ENDCG
 	
