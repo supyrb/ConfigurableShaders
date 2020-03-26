@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.7.0](https://github.com/supyrb/ConfigurableShaders/tree/0.7.0) (2020-03-25)
+[Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.6.3...0.7.0)
+
+**Closed issues:**
+
+- Add Emission Property for lit shaders [\#12](https://github.com/supyrb/ConfigurableShaders/issues/12)
+- Remove Albedo \[HDR\] flag for color [\#11](https://github.com/supyrb/ConfigurableShaders/issues/11)
+
 ## [0.6.3](https://github.com/supyrb/ConfigurableShaders/tree/0.6.3) (2019-11-21)
 [Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.6.2...0.6.3)
 
