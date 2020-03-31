@@ -23,6 +23,7 @@ Shader "Configurable/Reference/PropertyDrawers"
 		[RangeMapper] _RangeMapper("RangeMapper", Vector) = (0,1,0,1)
 		[SimpleToggle] _SimpleToggle("SimpleToggle", Float) = 0.0
 		[Tooltip(Tooltip Text)] _Tooltip("Tooltip", Float) = 0.0
+		[Ramp] _RampTex ("Color Ramp (RGBA)", 2D) = "white" {}
 	}
 	
 	CGINCLUDE
