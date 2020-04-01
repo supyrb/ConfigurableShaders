@@ -9,7 +9,7 @@
 Don't repeat yourself by writing the same shaders over and over again with little variation. You can expose a lot of different shader settings through attributes!
 Configurable Shaders does three main things:
 
-1. Provide unlit and lit Shaders for Opaque, Cutout and Transparent RenderTypes with a lot of configuration.
+1. Provide unlit and lit shaders for Opaque, Cutout and Transparent RenderTypes with a lot of configuration.
 2. Provide new useful Material Property Drawers and Debug Shaders
 3. Document the hidden features of shaders, that are not that apparent from the Unity Docs.
 
@@ -59,12 +59,12 @@ $ openupm add com.supyrb.signals
 
 ## Additional Support Notes
 
-* This Project is for Builtin Shaders, and not meant for usage in the Universal RenderPipeline (URP) or the High Definition Render Pipeline (HDRP)
+* This project is for Unity's Built-In Render Pipeline, and not meant for usage in the Universal Render Pipeline (URP) or the High Definition Render Pipeline (HDRP)
 * Alpha 2 Coverage is supported in the Unlit Cutout Shader ([More Information](https://github.com/supyrb/ConfigurableShaders/issues/9))
-* Easily Recreate [Diablo BlendAdd](https://www.youtube.com/watch?v=YPy2hytwDLM&feature=youtu.be&t=1217) by setting Blend to One OneMinusSrcAlpha ([More Information](https://github.com/supyrb/ConfigurableShaders/wiki/BlendModes))
+* Easily Recreate [Diablo BlendAdd](https://www.youtube.com/watch?v=YPy2hytwDLM&feature=youtu.be&t=1217) by setting Blend to `One OneMinusSrcAlpha` ([More Information](https://github.com/supyrb/ConfigurableShaders/wiki/BlendModes))
 * Custom [Material PropertyDrawers](../../wiki/PropertyDrawers)
 * Single Pass Stereo Rendering for VR
-* Shadows are also configred with the settings of the shader (which is great!)
+* Shadows are also configured with the settings of the shader (which is great!)
 
 ## Examples
 
@@ -74,12 +74,14 @@ Overview Scene | ![Overview Scene Screenshot](https://repository-images.githubus
 World Normal Shader | ![WorldNormalShader](../../wiki/images/DebugShaders/WorldNormalDemo.gif)
 Depth01 Shader | ![Depth01Shader](../../wiki/images/DebugShaders/Depth01Demo.gif)
 Standard Material Properties | ![Depth01Shader](../../wiki/images/ConfigurableStandardMaterial.png)
+Custom Property Drawers | ![Custom Material Property Drawers](../../wiki/images/PropertyDrawers/PropertyDrawersMaterial.png) 
 
 ## Contribute
-We would ❤love to hear from you.
+Let's make something great together!
 * If you find a problem, either create a PR or file an issue
+* Post your thoughts in the [Unity Forum Thread](https://forum.unity.com/threads/configurable-shaders-open-source-project.518966/)
 * To get in touch [send us a tweet]((https://twitter.com/supyrb))
-* Play our game [marbloid](https://itunes.apple.com/us/app/marbloid/id1207773612)
+* Support Supyrb by playing [our games](https://itunes.apple.com/us/app/marbloid/id1207773612)
 
 
 ## Helping Hands & Contributors
