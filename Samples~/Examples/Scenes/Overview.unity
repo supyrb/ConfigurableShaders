@@ -128,11 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 398511020}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
-        type: 3}
-      propertyPath: m_Name
-      value: stanford-bunny (3)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -208,6 +203,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 658848ef5872f554caf31a852cd8baf6, type: 2}
+    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
+        type: 3}
+      propertyPath: m_Name
+      value: stanford-bunny (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19d4bf1afdbc4041af7bc7ee68d457e, type: 3}
 --- !u!4 &220982327 stripped
@@ -263,11 +263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 398511020}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
-        type: 3}
-      propertyPath: m_Name
-      value: stanford-bunny (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -343,6 +338,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c76dddfaa17953644a455245f4360b15, type: 2}
+    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
+        type: 3}
+      propertyPath: m_Name
+      value: stanford-bunny (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19d4bf1afdbc4041af7bc7ee68d457e, type: 3}
 --- !u!4 &529282787 stripped
@@ -411,7 +411,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0}
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -451,11 +451,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 398511020}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
-        type: 3}
-      propertyPath: m_Name
-      value: stanford-bunny (2)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -531,6 +526,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9d16d6169cbe27747aaced8aa6700ca2, type: 2}
+    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
+        type: 3}
+      propertyPath: m_Name
+      value: stanford-bunny (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19d4bf1afdbc4041af7bc7ee68d457e, type: 3}
 --- !u!4 &641891276 stripped
@@ -546,11 +546,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 398511020}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
-        type: 3}
-      propertyPath: m_Name
-      value: stanford-bunny
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,6 +621,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fa9cc60f617baa047b90a42143bb771d, type: 2}
+    - target: {fileID: -927199367670048503, guid: b19d4bf1afdbc4041af7bc7ee68d457e,
+        type: 3}
+      propertyPath: m_Name
+      value: stanford-bunny
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19d4bf1afdbc4041af7bc7ee68d457e, type: 3}
 --- !u!4 &771774470 stripped
@@ -677,7 +677,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
@@ -690,7 +690,7 @@ MeshRenderer:
   m_GameObject: {fileID: 973348888}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -740,6 +740,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Depth
       objectReference: {fileID: 0}
+    - target: {fileID: 6387042408748634100, guid: 8b2c3b5b8c72de04cb5494938ddc5785,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: df5b13ae19a328b459edb8ee37121722, type: 2}
     - target: {fileID: 6387042408748634102, guid: 8b2c3b5b8c72de04cb5494938ddc5785,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -805,11 +810,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6387042408748634100, guid: 8b2c3b5b8c72de04cb5494938ddc5785,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: df5b13ae19a328b459edb8ee37121722, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b2c3b5b8c72de04cb5494938ddc5785, type: 3}
 --- !u!1001 &1507944920
@@ -987,6 +987,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdditiveToBlendedParticleExample
       objectReference: {fileID: 0}
+    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8388255255165624111, guid: ec93ef0d43969ab4faa47eb1d2535548,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1041,21 +1056,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388255255165624110, guid: ec93ef0d43969ab4faa47eb1d2535548,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec93ef0d43969ab4faa47eb1d2535548, type: 3}
