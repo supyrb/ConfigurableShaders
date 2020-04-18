@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WorldNormals.shader" company="Supyrb">
+// <copyright file="VFace.shader" company="Supyrb">
 //   Copyright (c) 2019 Supyrb. All rights reserved.
 // </copyright>
 // <repository>
@@ -13,16 +13,18 @@
 //   https://github.com/supyrb/ConfigurableShaders/wiki/DebugShaders
 // </documentation>
 // --------------------------------------------------------------------------------------------------------------------
-Shader "Configurable/Debug/WorldNormals"
+Shader "Configurable/Debug/VFace"
 {
 	Properties
 	{
 		_Color("Color", Color) = (1,1,1,1)
+		_FrontColor("Front Color", Color) = (1,0,0,1)
+		_BackColor("Back Color", Color) = (0,0,1,1)
 		[SimpleToggle] _UseVertexColor("Vertex color", Float) = 0.0
 		
 		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		[Tooltip(Changes the depth value. Negative values are closer to the camera)] _Offset("Offset", Float) = 0.0
-		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
+		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 0
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Int) = 4
 		[Enum(None,0,Alpha,1,Red,8,Green,4,Blue,2,RGB,14,RGBA,15)] _ColorMask("Color Mask", Int) = 14
@@ -45,11 +47,12 @@ Shader "Configurable/Debug/WorldNormals"
 	#include "UnityCG.cginc"
 	
 	half4 _Color;
+	half4 _FrontColor;
+	half4 _BackColor;
 	half _UseVertexColor;
 	
 	struct appdata_t {
 		float4 vertex : POSITION;
-		float3 normal : NORMAL;
 		half4 color: COLOR;
 		UNITY_VERTEX_INPUT_INSTANCE_ID
 	};
@@ -57,7 +60,6 @@ Shader "Configurable/Debug/WorldNormals"
 	struct v2f
 	{
 		float4 vertex : SV_POSITION;
-		half3 worldNormal : TEXCOORD0;
 		half4 color: COLOR;
 		UNITY_VERTEX_OUTPUT_STEREO
 	};
@@ -68,20 +70,14 @@ Shader "Configurable/Debug/WorldNormals"
 		UNITY_SETUP_INSTANCE_ID(v);
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		o.vertex = UnityObjectToClipPos(v.vertex);
-		o.worldNormal = UnityObjectToWorldNormal(v.normal);
 		o.color = lerp(_Color, v.color * _Color, _UseVertexColor);
 		return o;
 	}
 	
-	half4 frag (v2f i) : SV_Target
+	half4 frag (v2f i, float facing : VFACE) : SV_Target
 	{
-		// normal is a 3D vector with xyz components; in -1..1
-		// range. To display it as color, bring the range into 0..1
-		// and put into red, green, blue components
-		half3 normalColor = i.worldNormal*0.5+0.5;
-		
 		half4 color = i.color;
-		color.rgb *= normalColor;
+		color *= facing > 0 ? _FrontColor : _BackColor;
 		return color;
 	}
 	
