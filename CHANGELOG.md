@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.7.1](https://github.com/supyrb/ConfigurableShaders/tree/0.7.1) (2020-04-22)
+[Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.7.0...0.7.1)
+
+**Implemented enhancements:**
+
+- Rename Stencil Read and Write mask [\#13](https://github.com/supyrb/ConfigurableShaders/issues/13)
+
+**Fixed bugs:**
+
+- Rename Stencil Read and Write mask [\#13](https://github.com/supyrb/ConfigurableShaders/issues/13)
+
 ## [0.7.0](https://github.com/supyrb/ConfigurableShaders/tree/0.7.0) (2020-03-25)
 [Full Changelog](https://github.com/supyrb/ConfigurableShaders/compare/0.6.3...0.7.0)
 
