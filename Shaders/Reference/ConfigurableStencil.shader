@@ -25,8 +25,8 @@ Shader "Configurable/Reference/Stencil"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		[HideInInspector] _ReadMask ("ReadMask [0;255]", Int) = 255
-		[HideInInspector] _WriteMask ("WriteMask [0;255]", Int) = 255
+		[EightBit] _StencilReadMask ("ReadMask [0;255]", Int) = 255
+		[EightBit] _StencilWriteMask ("WriteMask [0;255]", Int) = 255
 		
 		[Header(Rendering)]
 		_Offset("Offset", float) = 0
@@ -92,8 +92,8 @@ Shader "Configurable/Reference/Stencil"
 		Stencil
 		{
 			Ref [_Stencil]
-			ReadMask [_ReadMask]
-			WriteMask [_WriteMask]
+			ReadMask [_StencilReadMask]
+			WriteMask [_StencilWriteMask]
 			Comp [_StencilComp]
 			Pass [_StencilOp] 
 			Fail [_StencilFail]

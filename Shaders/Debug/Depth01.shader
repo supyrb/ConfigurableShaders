@@ -35,8 +35,8 @@ Shader "Configurable/Debug/Depth01"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		[EightBit] _ReadMask ("ReadMask", Int) = 255
-		[EightBit] _WriteMask ("WriteMask", Int) = 255
+		[EightBit] _StencilReadMask ("Stencil Read Mask", Int) = 255
+		[EightBit] _StencilWriteMask ("Stencil Write Mask", Int) = 255
 		
 		[HeaderHelpURL(Blending, https, github.com supyrb ConfigurableShaders wiki Blending)]
 		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 1
@@ -118,8 +118,8 @@ Shader "Configurable/Debug/Depth01"
 		Stencil
 		{
 			Ref [_Stencil]
-			ReadMask [_ReadMask]
-			WriteMask [_WriteMask]
+			ReadMask [_StencilReadMask]
+			WriteMask [_StencilWriteMask]
 			Comp [_StencilComp]
 			Pass [_StencilOp]
 			Fail [_StencilFail]
