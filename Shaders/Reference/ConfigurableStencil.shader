@@ -19,7 +19,7 @@ Shader "Configurable/Reference/Stencil"
 	{		
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		
-		[Header(Stencil)]
+		[HeaderHelpURL(Stencil, https, github.com supyrb ConfigurableShaders wiki Stencil)]
 		_Stencil ("Stencil ID [0;255]", Float) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comparison", Int) = 3
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
@@ -28,7 +28,7 @@ Shader "Configurable/Reference/Stencil"
 		[EightBit] _StencilReadMask ("ReadMask [0;255]", Int) = 255
 		[EightBit] _StencilWriteMask ("WriteMask [0;255]", Int) = 255
 		
-		[Header(Rendering)]
+		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		_Offset("Offset", float) = 0
 		[Enum(UnityEngine.Rendering.CullMode)] _CullMode ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1

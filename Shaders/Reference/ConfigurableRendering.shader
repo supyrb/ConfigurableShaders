@@ -19,7 +19,7 @@ Shader "Configurable/Reference/Rendering"
 	{		
 		[HDR] _Color("Color", Color) = (1,1,1,1)
 		
-		[Header(Rendering)]
+		[HeaderHelpURL(Rendering, https, github.com supyrb ConfigurableShaders wiki Rendering)]
 		_Offset("Offset", float) = 0
 		[Enum(UnityEngine.Rendering.CullMode)] _Culling ("Cull Mode", Int) = 2
 		[Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 1
