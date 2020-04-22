@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI-Colorize2
+  m_Name: UI-ManualStencilMask1
   m_Shader: {fileID: 4800000, guid: c55c8efee1a74e842be6281d307c1567, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
