@@ -38,8 +38,8 @@ Shader "Configurable/UI"
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp ("Stencil Operation", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Int) = 0
-		[EightBit] _ReadMask ("ReadMask", Int) = 255
-		[EightBit] _WriteMask ("WriteMask", Int) = 255
+		[EightBit] _StencilReadMask ("Stencil Read Mask", Int) = 255
+		[EightBit] _StencilWriteMask ("Stencil Write Mask", Int) = 255
 	}
 
 	CGINCLUDE
