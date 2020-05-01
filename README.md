@@ -3,7 +3,7 @@
 ![Configurable stencil shader inspector screenshot](../../wiki/images/cutoutExample.gif)
 
 ### Access otherwise hidden shader features to understand them
-[![openupm](https://img.shields.io/npm/v/com.supyrb.configurableshaders?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.supyrb.signals/)
+[![openupm](https://img.shields.io/npm/v/com.supyrb.configurableshaders?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.supyrb.configurableshaders/)
 ---
 
 Don't repeat yourself by writing the same shaders over and over again with little variation. You can expose a lot of different shader settings through attributes!
@@ -28,7 +28,7 @@ Find `Packages/manifest.json` in your project and add the following:
 ```json
 {
   "dependencies": {
-    "com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.7.0",
+    "com.supyrb.configurableshaders": "https://github.com/supyrb/ConfigurableShaders.git#0.7.1",
     "...": "..."
   }
 }
@@ -46,7 +46,7 @@ $ npm install -g openupm-cli
 $ cd YOUR_UNITY_PROJECT_FOLDER
 
 # Add package to your project
-$ openupm add com.supyrb.signals
+$ openupm add com.supyrb.configurableshaders
 ```
 
 ## Wiki ([Home](../../wiki))
