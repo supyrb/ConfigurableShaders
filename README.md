@@ -4,6 +4,7 @@
 
 ### Access otherwise hidden shader features to understand them
 [![openupm](https://img.shields.io/npm/v/com.supyrb.configurableshaders?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.supyrb.configurableshaders/)
+[![](https://img.shields.io/github/release-date/supyrb/ConfigurableShaders.svg)](https://github.com/supyrb/ConfigurableShaders/releases)
 ---
 
 Don't repeat yourself by writing the same shaders over and over again with little variation. You can expose a lot of different shader settings through attributes!
