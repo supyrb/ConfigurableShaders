@@ -5,8 +5,8 @@
 ### Access otherwise hidden shader features to understand them
 [![openupm](https://img.shields.io/npm/v/com.supyrb.configurableshaders?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.supyrb.configurableshaders/)
 [![](https://img.shields.io/github/release-date/supyrb/ConfigurableShaders.svg)](https://github.com/supyrb/ConfigurableShaders/releases)
-![Unity 5.6 of later](https://img.shields.io/badge/unity-5.6%20or%20later-green.svg)
-![Builtin Shader-Pipeline](https://img.shields.io/badge/Shader%20Pipeline-builtin-blue.svg)
+[![Unity 5.6 or later](https://img.shields.io/badge/unity-5.6%20or%20later-green.svg?logo=unity&cacheSeconds=2592000)](https://unity3d.com/get-unity/download/archive)
+![Built-In Render Pipeline](https://img.shields.io/badge/render%20pipeline-builtin-blue.svg)
 ---
 
 Don't repeat yourself by writing the same shaders over and over again with little variation. You can expose a lot of different shader settings through attributes!
